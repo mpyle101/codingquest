@@ -25,19 +25,17 @@ fn doit(input: &str) -> String
             let msg: [u8;24] = bytes[8..].try_into().unwrap();
             (sender, seqno, cksum, msg)
         })
-        .filter(|t| {
-            let v = t.3.iter().map(|n| *n as u32).sum::<u32>() % 256;
-            v == t.2 as u32
-        })
+        .filter(|t| t.2 as u32 == t.3.iter().map(|n| *n as u32).sum::<u32>() % 256)
         .map(|t| (t.1, t.3))
         .collect::<Vec<_>>();
     msgs.sort();
-    let message = msgs.iter()
+
+    msgs.iter()
         .map(|(_, msg)| msg.iter().map(|b| *b as char).collect::<String>())
         .collect::<Vec<_>>()
-        .join("");
-
-    message.trim_end().to_string()
+        .join("")
+        .trim_end()
+        .into()
 }
 
 
