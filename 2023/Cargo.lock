@@ -5,3 +5,20 @@ version = 4
 [[package]]
 name = "mar06"
 version = "0.1.0"
+
+[[package]]
+name = "mar07"
+version = "0.1.0"
+dependencies = [
+ "rounded-div",
+]
+
+[[package]]
+name = "mar08"
+version = "0.1.0"
+
+[[package]]
+name = "rounded-div"
+version = "0.1.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "11dc1f50dc7944fb82cb7ac01b2e0b2356bf7d8b176547b92cd462262d7f8ec3"
