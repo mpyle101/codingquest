@@ -20,10 +20,7 @@ fn doit(input: &str) -> u64
         .map(|s1| {
             let mut iter = s1.lines();
             let folder = iter.next().unwrap();
-            let contents = iter.map(|s2| {
-                let mut it = s2.splitn(4, ' '); it.next(); it.next();
-                (it.next().unwrap(), it.next().unwrap())
-            }).collect::<Vec<_>>();
+            let contents = iter.map(|s2| s2[3..].split_once(' ').unwrap()).collect::<Vec<_>>();
 
             (folder, contents)
         })
