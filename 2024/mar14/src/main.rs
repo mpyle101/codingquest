@@ -27,8 +27,6 @@ fn doit(input: &str) -> usize
         |pos| *pos == goal
     ).unwrap();
 
-    //println!("{path:?}");
-
     path.1
 }
 
